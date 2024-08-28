@@ -5,7 +5,7 @@
 #!tag = 马士兵测试
 [Script]
 http-response ^https:\/\/gateway.mashibing.com\/uaa\/user\/getUserInfo\/\w+ requires-body = true,enable=true,script-path=https://raw.githubusercontent.com/paungmiao/loon/main/js/msb_vip.js
-http-response ^https:\/\/gateway.mashibing.com\/edu-course\/info\/myinfo requires-body = true,,enable=true,script-path=https://raw.githubusercontent.com/paungmiao/loon/main/js/msb_vip.js
+http-response ^https:\/\/gateway.mashibing.com\/edu-course\/info\/myinfo requires-body = true,,enable=true,script-path=https://raw.githubusercontent.com/paungmiao/loon/main/js/msb_myinfo.js
 
 [MITM]
 hostname = mashibing.com
