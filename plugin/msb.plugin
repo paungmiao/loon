@@ -1,10 +1,11 @@
-/**
-*
-* @description: 马士兵VIP测试
-*
-*/
+#!name= 马士兵测试
+#!desc= 马士兵测试
+#!author= paungmiao@163.com
+#!loon_version = 3.2.1(372)
+#!tag = 马士兵测试
 [Script]
-http-response ^https:\/\/gateway.mashibing.com\/uaa\/user\/getUserInfo\/\w+ requires-body=1,script-path=https://raw.githubusercontent.com/paungmiao/loon/main/js/msb_vip.js
+http-response ^https:\/\/gateway.mashibing.com\/uaa\/user\/getUserInfo\/\w+ requires-body = true,enable=true,script-path=https://raw.githubusercontent.com/paungmiao/loon/main/js/msb_vip.js
+http-response ^https:\/\/gateway.mashibing.com\/edu-course\/info\/myinfo requires-body = true,,enable=true,script-path=https://raw.githubusercontent.com/paungmiao/loon/main/js/msb_vip.js
 
 [MITM]
 hostname = mashibing.com
