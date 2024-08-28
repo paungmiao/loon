@@ -1,0 +1,10 @@
+/**
+*
+* @description: 马士兵VIP测试
+*
+*/
+[Script]
+http-response ^https:\/\/gateway.mashibing.com\/uaa\/user\/getUserInfo\/\w+ requires-body=1,script-path=https://raw.githubusercontent.com/paungmiao/loon/main/js/msb.js
+
+[MITM]
+hostname = mashibing.com
