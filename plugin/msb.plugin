@@ -8,5 +8,7 @@ http-response ^https:\/\/gateway.mashibing.com\/uaa\/user\/getUserInfo\/\w+ requ
 
 http-response ^https:\/\/gateway.mashibing.com\/edu-course\/info\/myinfo requires-body = true,,enable=true,script-path=https://raw.githubusercontent.com/paungmiao/loon/main/js/msb_myinfo.js,tag=info.js
 
+http-response ^https:\/\/gateway.mashibing.com\/edu-qa\/user\/isQaTeacherOrAssistant requires-body = true,,enable=true,script-path=https://raw.githubusercontent.com/paungmiao/loon/main/js/msb_myinfo.js,tag=qa_teacher.js
+
 [MITM]
 hostname = *.mashibing.com
