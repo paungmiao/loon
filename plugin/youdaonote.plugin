@@ -5,7 +5,7 @@
 #!tag = 有道云笔记签到
 [Script]
 http-request ^https:\/\/note.youdao.com\/yws\/mapi\/user\?method\=checkin requires-body = true,enable=true,script-path=https://raw.githubusercontent.com/paungmiao/loon/main/js/youdaonote.cookie.js,tag=cookie.js
-cron "0 0 * * *" script-path=https://raw.githubusercontent.com/paungmiao/loon/main/js/youdaonote.plugin.js,tag=有道云笔记签到
+cron "0 0 * * *" script-path=https://raw.githubusercontent.com/paungmiao/loon/main/js/youdaonote.js,tag=有道云笔记签到
 [MITM]
 hostname = *.youdao.com
 
