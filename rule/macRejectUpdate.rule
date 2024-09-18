@@ -1,0 +1,7 @@
+## Mac Software Update (sysin)
+host,swdist.apple.com,reject
+host,swscan.apple.com,reject
+host,swcdn.apple.com,reject
+host,gdmf.apple.com,reject
+host,mesu.apple.com,reject
+host,xp.apple.com,reject
