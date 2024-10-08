@@ -454,7 +454,7 @@ var doProxy = function () {
 }
 var url = $request.url
 console.log('url:' + url)
-if (url.lastIndexOf('sdk.php') > -1) {
+if ('https://loc.map.baidu.com/sdk.php'==url) {
     doPhp()
 } else {
     doProxy()
