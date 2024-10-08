@@ -1,17 +1,15 @@
-/*
- *
- *
-脚本功能：测试
-[rewrite_local]
-
-# > 全本小说&淘小说 解锁vip，
-^https:\/\/loc.map.baidu.com\/sdk.php url script-response-body https://raw.githubusercontent.com/paungmiao/loon/refs/heads/main/js/baidu-loc.js
-[mitm]
-hostname = *.yinhaiyun.com,*.baidu.com
-*
-*
-*/
 let body = JSON.parse(JSON.stringify($response.body));
+
+// 检查 body.content 是否存在，如果不存在则创建
+if (!body.content) {
+    body.content = {};
+}
+
+// 检查 body.content.sema 是否存在，如果不存在则创建
+if (!body.content.sema) {
+    body.content.sema = {};
+}
+
 const demoResult = JSON.parse(JSON.stringify({
     "content": {
         "addr": {
@@ -51,40 +49,32 @@ const demoResult = JSON.parse(JSON.stringify({
             }
         }
     }, "result": {"error": "161", "time": "2024-10-08 15:42:41"}
-}))
-alert(body)
-console.log(body.content)
-console.log(body.content.sema)
-body.content.sema = demoResult.content.sema
-body.content.addr = demoResult.content.addr
-body.content.radius = demoResult.content.radius
+}));
+
+// 更新内容
+body.content.sema = demoResult.content.sema;
+body.content.addr = demoResult.content.addr;
+body.content.radius = demoResult.content.radius;
+
 // 获取原始值
 let x = body.content.point.x; // 例如 3.141592
 let y = body.content.point.y; // 例如 30.592055
-console.log('x=', x)
-console.log('y=', y)
 
 // 随机增加小数的最后一位
 function randomizeLastDecimal(value) {
-    const valueStr = value.toString(); // 转为字符串
-    const decimalIndex = valueStr.indexOf('.'); // 查找小数点位置
+    const valueStr = value.toString();
+    const decimalIndex = valueStr.indexOf('.');
 
-    // 如果没有小数点，返回原值
     if (decimalIndex === -1) return value;
 
-    // 获取整数部分和小数部分
-    const integerPart = valueStr.slice(0, decimalIndex + 1); // 包含小数点
-    const decimalPart = valueStr.slice(decimalIndex + 1); // 小数部分
+    const integerPart = valueStr.slice(0, decimalIndex + 1);
+    const decimalPart = valueStr.slice(decimalIndex + 1);
 
-    // 随机生成 0 到 9 之间的整数
     const randomInt = Math.floor(Math.random() * 10);
-
-    // 对最后一位小数进行增加
     const lastDigit = parseInt(decimalPart[decimalPart.length - 1]);
-    const newLastDigit = (lastDigit + randomInt) % 10; // 确保结果在 0 到 9 之间
-    const newDecimalPart = decimalPart.slice(0, -1) + newLastDigit; // 替换最后一位小数
+    const newLastDigit = (lastDigit + randomInt) % 10;
+    const newDecimalPart = decimalPart.slice(0, -1) + newLastDigit;
 
-    // 返回新的值
     return parseFloat(integerPart + newDecimalPart);
 }
 
@@ -92,5 +82,5 @@ function randomizeLastDecimal(value) {
 body.content.point.x = randomizeLastDecimal(x);
 body.content.point.y = randomizeLastDecimal(y);
 body.修改标识 = true;
-// 返回更新后的 body
-$done(JSON.stringify(body));
+
+$done({body: JSON.stringify(body)});
