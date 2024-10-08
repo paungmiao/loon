@@ -447,6 +447,7 @@ var doProxy = function () {
         var distancd = parseFloat(e.distance) - 30
         e.distance = Math.min(Math.abs(distancd), e.distance)
     })
+    defaulrResp.rewrite=true 
     $done({
         body: JSON.stringify(defaultResp)
     })
