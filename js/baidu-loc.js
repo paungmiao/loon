@@ -104,6 +104,8 @@ var x = obj.content.point.x; // 例如 3.141592
 var y = obj.content.point.y; // 例如 30.592055
 x = randomizeLastDecimal(x);
 y = randomizeLastDecimal(y);
+console.log(x)
+console.log(y)
 obj.content.point.x = x;
 obj.content.point.y = y;
 body = JSON.stringify(obj)
