@@ -445,13 +445,14 @@ var doProxy = function () {
     defaultResp.result.pois.forEach(e => {
         $notify(e.name, e.addr, e.distance)
         var distancd = parseFloat(e.distance) - 30
-        e.distance = Math.min(Math.abs(distancd),e.distance)
+        e.distance = Math.min(Math.abs(distancd), e.distance)
     })
     $done({
         body: JSON.stringify(defaultResp)
     })
 }
 var url = $request.url
+console.log('url:' + url)
 if (url.lastIndexOf('sdk.php') > -1) {
     doPhp()
 } else {
