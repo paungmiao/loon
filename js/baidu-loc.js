@@ -106,8 +106,13 @@ x = randomizeLastDecimal(x);
 y = randomizeLastDecimal(y);
 console.log(x)
 console.log(y)
+// // 更新内容
+obj.content.sema = demoResult.content.sema;
+obj.content.addr = demoResult.content.addr;
+obj.content.radius = demoResult.content.radius;
 obj.content.point.x = x;
 obj.content.point.y = y;
+obj.rewrite=true
 body = JSON.stringify(obj)
 
 $done(body);
