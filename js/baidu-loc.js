@@ -12,7 +12,6 @@ hostname = *.yinhaiyun.com,*.baidu.com
 *
 */
 let data = JSON.parse(JSON.stringify($response.body));
-
 // 检查 body.content 是否存在，如果不存在则创建
 if (!data.content) {
     data.content = {};
@@ -96,4 +95,4 @@ function randomizeLastDecimal(value) {
 data.content.point.x = randomizeLastDecimal(x);
 data.content.point.y = randomizeLastDecimal(y);
 data.modify = true;
-$done({body: JSON.stringify(data)});
+$done({body: data});
