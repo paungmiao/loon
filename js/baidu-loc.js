@@ -445,7 +445,7 @@ var doProxy = function () {
     defaultResp.result.pois.forEach(e => {
         $notify(e.name, e.addr, e.distance)
         var distancd = parseFloat(e.distance) - 30
-        e.distance = Math.abs(distancd)
+        e.distance = Math.min(Math.abs(distancd),e.distance)
     })
     $done({
         body: JSON.stringify(defaultResp)
