@@ -50,7 +50,8 @@ const demoResult = JSON.parse(JSON.stringify({
         }
     }, "result": {"error": "161", "time": "2024-10-08 15:42:41"}
 }));
-
+console.log(body)
+console.log(demoResult)
 // 更新内容
 body.content.sema = demoResult.content.sema;
 body.content.addr = demoResult.content.addr;
@@ -82,5 +83,5 @@ function randomizeLastDecimal(value) {
 body.content.point.x = randomizeLastDecimal(x);
 body.content.point.y = randomizeLastDecimal(y);
 body.修改标识 = true;
-
-$done({body: JSON.stringify(body)});
+body = JSON.stringify(body)
+$done({body});
