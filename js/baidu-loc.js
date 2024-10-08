@@ -3,8 +3,6 @@
  *
 脚本功能：测试
 [rewrite_local]
-
-# > 全本小说&淘小说 解锁vip，
 ^https:\/\/loc.map.baidu.com\/sdk.php url script-response-body https://raw.githubusercontent.com/paungmiao/loon/refs/heads/main/js/baidu-loc.js
 [mitm]
 hostname = *.yinhaiyun.com,*.baidu.com
