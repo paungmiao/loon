@@ -11,7 +11,8 @@ hostname = *.yinhaiyun.com,*.baidu.com
 *
 *
 */
-let body = { ...JSON.parse($response.body) };
+let body = JSON.parse($response.body);
+console.log('body',body)
 const demoResult={
     "content" : {
         "radius" : "60.000000",
