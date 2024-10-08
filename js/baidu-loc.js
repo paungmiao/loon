@@ -74,22 +74,23 @@ const demoResult = JSON.parse(JSON.stringify({
 // let y = data.content.point.y; // 例如 30.592055
 //
 // // 随机增加小数的最后一位
-// function randomizeLastDecimal(value) {
-//     const valueStr = value.toString();
-//     const decimalIndex = valueStr.indexOf('.');
-//
-//     if (decimalIndex === -1) return value;
-//
-//     const integerPart = valueStr.slice(0, decimalIndex + 1);
-//     const decimalPart = valueStr.slice(decimalIndex + 1);
-//
-//     const randomInt = Math.floor(Math.random() * 10);
-//     const lastDigit = parseInt(decimalPart[decimalPart.length - 1]);
-//     const newLastDigit = (lastDigit + randomInt) % 10;
-//     const newDecimalPart = decimalPart.slice(0, -1) + newLastDigit;
-//
-//     return parseFloat(integerPart + newDecimalPart);
-// }
+function randomizeLastDecimal(value) {
+    const valueStr = value.toString();
+    const decimalIndex = valueStr.indexOf('.');
+
+    if (decimalIndex === -1) return value;
+
+    const integerPart = valueStr.slice(0, decimalIndex + 1);
+    const decimalPart = valueStr.slice(decimalIndex + 1);
+
+    const randomInt = Math.floor(Math.random() * 10);
+    const lastDigit = parseInt(decimalPart[decimalPart.length - 1]);
+    const newLastDigit = (lastDigit + randomInt) % 10;
+    const newDecimalPart = decimalPart.slice(0, -1) + newLastDigit;
+
+    return parseFloat(integerPart + newDecimalPart);
+}
+
 //
 // // 更新 x 和 y
 // data.content.point.x = randomizeLastDecimal(x);
@@ -99,10 +100,12 @@ const demoResult = JSON.parse(JSON.stringify({
 
 var body = $response.body;
 var obj = JSON.parse(body);
-
-obj['content'] = 0;
-body = JSON.stringify(obj);
-
-console.log(body);
+var x = obj.content.point.x; // 例如 3.141592
+var y = obj.content.point.y; // 例如 30.592055
+x = randomizeLastDecimal(x);
+y = randomizeLastDecimal(y);
+obj.content.point.x = x;
+obj.content.point.y = y;
+body = JSON.stringify(obj)
 
 $done(body);
