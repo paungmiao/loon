@@ -102,10 +102,12 @@ var body = $response.body;
 var obj = JSON.parse(body);
 var x = obj.content.point.x; // 例如 3.141592
 var y = obj.content.point.y; // 例如 30.592055
+console.log('原始X：',x)
+console.log('原始Y：',y)
 x = randomizeLastDecimal(x);
 y = randomizeLastDecimal(y);
-console.log(x)
-console.log(y)
+console.log('修改后X：'+x)
+console.log('修改后X：'+y)
 // // 更新内容
 obj.content.sema = demoResult.content.sema;
 obj.content.addr = demoResult.content.addr;
