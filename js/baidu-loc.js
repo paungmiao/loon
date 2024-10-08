@@ -88,6 +88,6 @@ function randomizeLastDecimal(value) {
 // 更新 x 和 y
 body.content.point.x = randomizeLastDecimal(x);
 body.content.point.y = randomizeLastDecimal(y);
-body.success = true;
+body.修改标识 = true;
 // 返回更新后的 body
 $done({body: JSON.stringify(body)});
