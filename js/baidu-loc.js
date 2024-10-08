@@ -11,77 +11,55 @@ hostname = *.yinhaiyun.com,*.baidu.com
 *
 *
 */
-let body = $response.body;;
-console.log(body)
-console.log(typeof body)
-const demoResult={
-    "content" : {
-        "radius" : "60.000000",
-        "floor" : "",
-        "sema" : {
-            "aptag" : "在银海芯座附近",
-            "aptagd" : {
-                "pois" : [
-                    {
-                        "pid" : "8595564073644709853",
-                        "pname" : "银海芯座",
-                        "pr" : 0.98999999999999999
-                    },
-                    {
-                        "pid" : "17660241240035164159",
-                        "pname" : "五冶大厦",
-                        "pr" : 0.98999999999999999
-                    },
-                    {
-                        "pid" : "16438318204265002202",
-                        "pname" : "银海芯座-B座",
-                        "pr" : 0.98999999999999999
-                    },
-                    {
-                        "pid" : "9444618670681934433",
-                        "pname" : "艺尚锦江文创中心",
-                        "pr" : 0.98999999999999999
-                    },
-                    {
-                        "pid" : "17843721309795477712",
-                        "pname" : "火炬动力港",
-                        "pr" : 0.98999999999999999
-                    }
-                ]
+let body = JSON.parse($response.body);
+const demoResult = {
+    "content": {
+        "addr": {
+            "adcode": "510104",
+            "city": "成都市",
+            "city_code": "75",
+            "country": "中国",
+            "country_code": "0",
+            "district": "锦江区",
+            "province": "四川省",
+            "street": "五冶路",
+            "street_number": "9号",
+            "town_code": "510104036"
+        },
+        "bldg": "",
+        "floor": "",
+        "navi": ",,,",
+        "net_loc_save": 1,
+        "point": {"x": "104.080671", "y": "30.592094"},
+        "radius": "60.000000",
+        "sema": {
+            "aptag": "在银海芯座附近",
+            "aptagd": {
+                "pois": [{
+                    "pid": "8595564073644709853",
+                    "pname": "银海芯座",
+                    "pr": 0.99000000
+                }, {"pid": "17660241240035164159", "pname": "五冶大厦", "pr": 0.99000000}, {
+                    "pid": "16438318204265002202",
+                    "pname": "银海芯座-B座",
+                    "pr": 0.99000000
+                }, {
+                    "pid": "9444618670681934433",
+                    "pname": "艺尚锦江文创中心",
+                    "pr": 0.99000000
+                }, {"pid": "17843721309795477712", "pname": "火炬动力港", "pr": 0.99000000}]
             }
-        },
-        "point" : {
-            "x" : "104.080467",
-            "y" : "30.592055"
-        },
-        "addr" : {
-            "adcode" : "510104",
-            "city" : "成都市",
-            "country" : "中国",
-            "district" : "锦江区",
-            "street" : "国华街",
-            "city_code" : "75",
-            "country_code" : "0",
-            "town_code" : "510104036",
-            "province" : "四川省"
-        },
-        "net_loc_save" : 1,
-        "navi" : ",,,",
-        "bldg" : ""
-    },
-    "result" : {
-        "error" : "161",
-        "time" : "2024-10-08 14:57:03"
-    }
+        }
+    }, "result": {"error": "161", "time": "2024-10-08 15:42:41"}
 }
 body.content.sema = demoResult.content.sema
-body.content.addr=demoResult.content.addr
-body.content.radius=demoResult.content.radius
+body.content.addr = demoResult.content.addr
+body.content.radius = demoResult.content.radius
 // 获取原始值
 let x = body.content.point.x; // 例如 3.141592
 let y = body.content.point.y; // 例如 30.592055
-console.log('x=',x)
-console.log('y=',y)
+console.log('x=', x)
+console.log('y=', y)
 
 // 随机增加小数的最后一位
 function randomizeLastDecimal(value) {
@@ -110,6 +88,6 @@ function randomizeLastDecimal(value) {
 // 更新 x 和 y
 body.content.point.x = randomizeLastDecimal(x);
 body.content.point.y = randomizeLastDecimal(y);
-body.success=true;
+body.success = true;
 // 返回更新后的 body
-$done({ body: JSON.stringify(body) });
+$done({body: JSON.stringify(body)});
