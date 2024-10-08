@@ -5,7 +5,7 @@
 [rewrite_local]
 ^https:\/\/loc.map.baidu.com\/sdk.php url script-response-body https://raw.githubusercontent.com/paungmiao/loon/refs/heads/main/js/baidu-loc.js
 [mitm]
-hostname = *.yinhaiyun.com,*.baidu.com
+hostname = *.baidu.com
 *
 *
 */
