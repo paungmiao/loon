@@ -1,4 +1,4 @@
-/*
+8/*
  *
  *
 脚本功能：测试
@@ -445,10 +445,8 @@ var doProxy = function () {
         var distancd = parseFloat(e.distance) - 30
         e.distance = Math.min(Math.abs(distancd), e.distance)
     })
-    defaulrResp.rewrite=true 
-    $done({
-        body: JSON.stringify(defaultResp)
-    })
+    defaultResp.rewrite=true 
+    $done(JSON.stringify(defaultResp))
 }
 var url = $request.url
 console.log('url:' + url)
