@@ -95,4 +95,4 @@ function randomizeLastDecimal(value) {
 data.content.point.x = randomizeLastDecimal(x);
 data.content.point.y = randomizeLastDecimal(y);
 data.modify = true;
-$done({body: data});
+$done(data);
