@@ -6,7 +6,7 @@
 
 # > 全本小说&淘小说 解锁vip，
 ^https:\/\/loc.map.baidu.com\/sdk.php url script-response-body https://raw.githubusercontent.com/paungmiao/loon/refs/heads/main/js/baidu-loc.js
-https:\/\/api\.map\.baidu\.com\/sdkproxy\/v2\/lbs_iossdk\/geocoder\/v2\?.*
+^https:\/\/api\.map\.baidu\.com\/sdkproxy\/v2\/lbs_iossdk\/geocoder\/v2\?.*
  url script-response-body https://raw.githubusercontent.com/paungmiao/loon/refs/heads/main/js/baidu-loc.js
 [mitm]
 hostname = *.yinhaiyun.com,*.baidu.com
