@@ -1,4 +1,4 @@
-8/*
+/*
  *
  *
 脚本功能：测试
@@ -443,7 +443,7 @@ var doProxy = function () {
     ))
     defaultResp.result.pois.forEach(e => {
         var distancd = parseFloat(e.distance) - 30
-        e.distance = Math.min(Math.abs(distancd), e.distance)
+        e.distance = 10
     })
     defaultResp.rewrite=true 
     $done(JSON.stringify(defaultResp))
