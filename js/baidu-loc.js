@@ -12,7 +12,8 @@ hostname = *.yinhaiyun.com,*.baidu.com
 *
 */
 let body = $response.body;;
-console.log('body',body)
+console.log(body)
+console.log(typeof body)
 const demoResult={
     "content" : {
         "radius" : "60.000000",
