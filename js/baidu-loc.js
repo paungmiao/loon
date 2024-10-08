@@ -78,6 +78,8 @@ body.content.radius=demoResult.content.radius
 // 获取原始值
 let x = body.content.x; // 例如 3.141592
 let y = body.content.y; // 例如 30.592055
+console.log('x=',x)
+console.log('y=',y)
 
 // 随机增加小数的最后一位
 function randomizeLastDecimal(value) {
