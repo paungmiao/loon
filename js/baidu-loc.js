@@ -11,16 +11,16 @@ hostname = *.yinhaiyun.com,*.baidu.com
 *
 *
 */
-let body = JSON.parse(JSON.stringify($response.body));
+let data = JSON.parse(JSON.stringify($response.body));
 
 // 检查 body.content 是否存在，如果不存在则创建
-if (!body.content) {
-    body.content = {};
+if (!data.content) {
+    data.content = {};
 }
 
 // 检查 body.content.sema 是否存在，如果不存在则创建
-if (!body.content.sema) {
-    body.content.sema = {};
+if (!data.content.sema) {
+    data.content.sema = {};
 }
 
 const demoResult = JSON.parse(JSON.stringify({
@@ -63,16 +63,16 @@ const demoResult = JSON.parse(JSON.stringify({
         }
     }, "result": {"error": "161", "time": "2024-10-08 15:42:41"}
 }));
-console.log(body)
+console.log(data)
 console.log(demoResult)
 // 更新内容
-body.content.sema = demoResult.content.sema;
-body.content.addr = demoResult.content.addr;
-body.content.radius = demoResult.content.radius;
+data.content.sema = demoResult.content.sema;
+data.content.addr = demoResult.content.addr;
+data.content.radius = demoResult.content.radius;
 
 // 获取原始值
-let x = body.content.point.x; // 例如 3.141592
-let y = body.content.point.y; // 例如 30.592055
+let x = data.content.point.x; // 例如 3.141592
+let y = data.content.point.y; // 例如 30.592055
 
 // 随机增加小数的最后一位
 function randomizeLastDecimal(value) {
@@ -93,8 +93,7 @@ function randomizeLastDecimal(value) {
 }
 
 // 更新 x 和 y
-body.content.point.x = randomizeLastDecimal(x);
-body.content.point.y = randomizeLastDecimal(y);
-body.修改标识 = true;
-body = JSON.stringify(body)
-$done({body});
+data.content.point.x = randomizeLastDecimal(x);
+data.content.point.y = randomizeLastDecimal(y);
+data.modify = true;
+$done({body: JSON.stringify(data)});
