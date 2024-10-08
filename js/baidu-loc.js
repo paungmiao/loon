@@ -52,7 +52,7 @@ const demoResult = JSON.parse(JSON.stringify({
         }
     }, "result": {"error": "161", "time": "2024-10-08 15:42:41"}
 }))
-console.log(body)
+alert(body)
 console.log(body.content)
 console.log(body.content.sema)
 body.content.sema = demoResult.content.sema
