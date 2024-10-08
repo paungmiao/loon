@@ -90,4 +90,4 @@ body.content.point.x = randomizeLastDecimal(x);
 body.content.point.y = randomizeLastDecimal(y);
 body.修改标识 = true;
 // 返回更新后的 body
-$done({body: JSON.stringify(body)});
+$done(JSON.stringify(body));
