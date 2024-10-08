@@ -76,8 +76,8 @@ body.content.sema = demoResult.content.sema
 body.content.addr=demoResult.content.addr
 body.content.radius=demoResult.content.radius
 // 获取原始值
-let x = body.content.x; // 例如 3.141592
-let y = body.content.y; // 例如 30.592055
+let x = body.content.point.x; // 例如 3.141592
+let y = body.content.point.y; // 例如 30.592055
 console.log('x=',x)
 console.log('y=',y)
 
@@ -106,8 +106,8 @@ function randomizeLastDecimal(value) {
 }
 
 // 更新 x 和 y
-body.content.x = randomizeLastDecimal(x);
-body.content.y = randomizeLastDecimal(y);
+body.content.point.x = randomizeLastDecimal(x);
+body.content.point.y = randomizeLastDecimal(y);
 body.success=true;
 // 返回更新后的 body
 $done({ body: JSON.stringify(body) });
