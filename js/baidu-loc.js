@@ -11,7 +11,7 @@ hostname = *.yinhaiyun.com,*.baidu.com
 *
 *
 */
-let body = JSON.parse($response.body);
+let body = $response.body;;
 console.log('body',body)
 const demoResult={
     "content" : {
