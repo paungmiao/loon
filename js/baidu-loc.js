@@ -12,7 +12,7 @@ hostname = *.yinhaiyun.com,*.baidu.com
 *
 */
 let body = JSON.parse(JSON.stringify($response.body));
-const demoResult = {
+const demoResult = JSON.parse(JSON.stringify({
     "content": {
         "addr": {
             "adcode": "510104",
@@ -51,7 +51,7 @@ const demoResult = {
             }
         }
     }, "result": {"error": "161", "time": "2024-10-08 15:42:41"}
-}
+}))
 body.content.sema = demoResult.content.sema
 body.content.addr = demoResult.content.addr
 body.content.radius = demoResult.content.radius
