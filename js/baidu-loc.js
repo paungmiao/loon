@@ -65,7 +65,7 @@ const demoResult = JSON.parse(JSON.stringify({
 console.log(data)
 console.log(demoResult)
 // 更新内容
-data.content.sema = demoResult.content.sema;
+data['content']['sema'] = demoResult.content.sema;
 data.content.addr = demoResult.content.addr;
 data.content.radius = demoResult.content.radius;
 
