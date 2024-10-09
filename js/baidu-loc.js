@@ -445,12 +445,13 @@ var doProxy = function () {
         var distancd = parseFloat(e.distance) - 30
         e.distance = 10
     })
-    defaultResp.rewrite=true 
-    $done(JSON.stringify(defaultResp))
+    defaultResp.rewrite = true
+    var body = JSON.stringify(defaultResp)
+    $done(body)
 }
 var url = $request.url
 console.log('url:' + url)
-if ('https://loc.map.baidu.com/sdk.php'==url) {
+if ('https://loc.map.baidu.com/sdk.php' == url) {
     doPhp()
 } else {
     doProxy()
