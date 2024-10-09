@@ -441,12 +441,14 @@ var doProxy = function () {
             }
         }
     ))
-    defaultResp.result.pois.forEach(e => {
-        var distancd = parseFloat(e.distance) - 30
-        e.distance = 10
+    var body = $response.body;
+    var obj = JSON.parse(body);
+    obj.result.pois.forEach(e => {
+        var distancd = Math.abs(parseFloat(e.distance) - 50)
+        e.distance = Math.min(distancd,e.distance)
     })
-    defaultResp.rewrite = true
-    var body = JSON.stringify(defaultResp)
+    obj.rewrite = true
+    var body = JSON.stringify(obj)
     $done(body)
 }
 var url = $request.url
