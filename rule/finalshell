@@ -1,0 +1,15 @@
+[Rule]
+# 屏蔽 hostbuf 相关域名
+DOMAIN-SUFFIX,hostbuf.com,REJECT
+
+# 屏蔽 youtusoft 相关域名
+DOMAIN-SUFFIX,youtusoft.com,REJECT
+
+# 屏蔽 dkys.org
+DOMAIN-SUFFIX,dkys.org,REJECT
+
+# 屏蔽 tcpspeed.com
+DOMAIN-SUFFIX,tcpspeed.com,REJECT
+
+# 屏蔽 wn1998 相关域名
+DOMAIN-SUFFIX,wn1998.com,REJECT
